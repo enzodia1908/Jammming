@@ -1,35 +1,40 @@
-import { useState } from 'react'
+import { use, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import SearchBar from './components/SearchBar'
+import SearchResults from './components/SearchResults'
+
+
+//ClientID: 1d11739c7f2a47d9b84780ec64e06aee
+//ClientSecret: 6090551b1ec9432cabe3f5804c28f9d4
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [results, setResults] = useState([]);
+
+
+
+  const handleSearch = (query) => {
+
+    const dummyTracks = [
+      {artist: 'D-Sturb', trackName: 'Anxious'},
+      {artist: 'Myst', trackName: 'Relentless'}, 
+      {artist: 'D-Sturb', trackName: 'The Edge (of the End)'}
+    ];
+
+    setResults(dummyTracks);
+  }
+
+
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      <h1>Jammming</h1>
+      <SearchBar value={searchQuery} onSearch={handleSearch}/>
+      {results.length > 0 && <SearchResults results={results}/>}
+    </div>
   )
 }
 
-export default App
+export default App;
