@@ -1,13 +1,18 @@
 import React from 'react';
 import Track from './Track'
+import styles from '../styles/Tracklist.module.css'
 
-function Tracklist({result}) {
+function Tracklist({tracks}) {
 
 
     return (
         <div>
             <ul>
-                <Track result={result}/>
+                {tracks.map((track) => (
+                    <li>
+                        <Track track={track}/>
+                    </li>
+                ))}
             </ul>
         </div>
     );

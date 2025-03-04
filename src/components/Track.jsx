@@ -1,14 +1,11 @@
 import React from 'react';
+import styles from '../styles/Track.module.css'
 
-function Track({result}) {
+function Track({track}) {
 
     return (
         <div>
-            <ol>
-                {result.map((result) => (
-                    <li>{result.trackName} by {result.artist}</li>
-                ))}
-            </ol>
+            <span>{track.trackName} by {track.artist}</span>
         </div>
     );
 };

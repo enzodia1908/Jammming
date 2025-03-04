@@ -1,4 +1,4 @@
-import { use, useState } from 'react'
+import React, { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -11,27 +11,39 @@ import SearchResults from './components/SearchResults'
 
 function App() {
 
+  const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
 
 
 
   const handleSearch = (query) => {
 
+    console.log(`query ${query}`);
+
     const dummyTracks = [
       {artist: 'D-Sturb', trackName: 'Anxious'},
       {artist: 'Myst', trackName: 'Relentless'}, 
+      {artist: 'D-Sturb', trackName: 'The Edge (of the End)'},
       {artist: 'D-Sturb', trackName: 'The Edge (of the End)'}
     ];
 
-    setResults(dummyTracks);
+    console.log(`Dummy tracks ${dummyTracks}`);
+
+    const filteredTracks = dummyTracks.filter(track =>
+      track.artist.toLowerCase().includes(query.toLowerCase) ||
+      track.trackName.toLowerCase().includes(query.toLowerCase)
+    )
+    console.log(filteredTracks);
+    setResults(filteredTracks);
+
   }
 
 
 
   return (
     <div>
-      <h1>Jammming</h1>
-      <SearchBar value={searchQuery} onSearch={handleSearch}/>
+      <h1 className='header'>Jammming</h1>
+      <SearchBar onSearch={handleSearch}/>
       {results.length > 0 && <SearchResults results={results}/>}
     </div>
   )

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SearchResults from './SearchResults';
+import styles from '../styles/SearchBar.module.css'
 
 function SearchBar({onSearch}){
 
@@ -20,11 +20,14 @@ function SearchBar({onSearch}){
     return (
         <div>
             <input
+                className={styles.searchBar}
                 value={query}
                 onChange={handleInputChange}
                 placeholder='Favourite song?'/>
         
-            <button onClick={handleSubmit}>Search</button>
+            <button 
+                className={styles.button}
+                onClick={handleSubmit}>Search</button>
         </div>
     );
 };
