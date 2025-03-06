@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import SearchBar from './components/SearchBar'
 import SearchResults from './components/SearchResults'
+import Playlist from './components/Playlist'
 
 
 //ClientID: 1d11739c7f2a47d9b84780ec64e06aee
@@ -30,11 +31,12 @@ function App() {
     console.log(`Dummy tracks ${dummyTracks}`);
 
     const filteredTracks = dummyTracks.filter(track =>
-      track.artist.toLowerCase().includes(query.toLowerCase) ||
-      track.trackName.toLowerCase().includes(query.toLowerCase)
+      track.artist.toLowerCase().includes(query.toLowerCase()) ||
+      track.trackName.toLowerCase().includes(query.toLowerCase())
     )
-    console.log(filteredTracks);
+
     setResults(filteredTracks);
+        console.log(filteredTracks);
 
   }
 
