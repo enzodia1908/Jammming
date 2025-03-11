@@ -12,8 +12,8 @@ import Playlist from './components/Playlist'
 
 function App() {
 
-  const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
+  const [playlist, newPlaylist] = useState([]);
 
 
 
@@ -40,13 +40,17 @@ function App() {
 
   }
 
+  const handleAdd = () => {
+
+  }
+
 
 
   return (
     <div>
       <h1 className='header'>Jammming</h1>
       <SearchBar onSearch={handleSearch}/>
-      {results.length > 0 && <SearchResults results={results}/>}
+      {results.length > 0 && <SearchResults results={results} onAdd={handleAdd}/>}
     </div>
   )
 }

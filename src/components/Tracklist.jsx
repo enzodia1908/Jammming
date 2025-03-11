@@ -17,7 +17,6 @@ function Tracklist({tracks}) {
                 {tracks.map((track) => (
                     <li>
                         <Track track={track}/>
-                        <button value={{track.artist, track.trackName}} onClick={handleClick}>+</button>
                     </li>
                 ))}
             </ul>
